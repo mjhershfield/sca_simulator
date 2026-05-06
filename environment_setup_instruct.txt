@@ -1,0 +1,10 @@
+# create the environment, minus scared package
+conda env create -f cw_scalab_20260501.yml -n sca_demo
+
+# activate the environment
+conda activate sca_demo
+
+# force install of a specific version of scared package which
+# depends on numpy<1.17 (based on it pyproject.toml file) but
+# works with numpy=1.26.4 (which was installed via the yaml file)
+python -m pip install scared==0.7.8 --no-deps
